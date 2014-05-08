@@ -8,17 +8,22 @@
 
 Name:           python-gccjit
 Version:        0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python bindings for libgccjit
 
 License:        GPLv3+
 URL:            https://github.com/davidmalcolm/pygccjit
 Source0:        gccjit-%{version}.tar.gz
 
-BuildRequires:  python-devel
-BuildRequires:  python3-devel
 BuildRequires:  libgccjit-devel
+
+BuildRequires:  python-devel
 BuildRequires:  Cython
+
+%if 0%{?with_python3}
+BuildRequires:  python3-devel
+BuildRequires:  python3-Cython
+%endif # with_python3
 
 %description
 Python bindings for libgccjit
@@ -84,5 +89,8 @@ popd
 %endif # with_python3
 
 %changelog
+* Thu May  8 2014 David Malcolm <dmalcolm@redhat.com> - 0.1-2
+- Fix BRs
+
 * Wed May  7 2014 David Malcolm <dmalcolm@redhat.com> - 0.1-1
 - Initial packaging
