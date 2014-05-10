@@ -8,7 +8,7 @@
 
 Name:           python-gccjit
 Version:        0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Python bindings for libgccjit
 
 License:        GPLv3+
@@ -19,10 +19,12 @@ BuildRequires:  libgccjit-devel
 
 BuildRequires:  python-devel
 BuildRequires:  Cython
+BuildRequires:  python-setuptools
 
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
 BuildRequires:  python3-Cython
+BuildRequires:  python3-setuptools
 %endif # with_python3
 
 %description
@@ -68,13 +70,11 @@ popd
 
 %check
 
-# FIXME: skip tests for now; they're currently aborting
-
-# %{__python2} setup.py test
+%{__python2} setup.py test
 
 %if 0%{?with_python3}
 pushd %{py3dir}
-# %{__python3} setup.py test
+%{__python3} setup.py test
 popd
 %endif # with_python3
 
@@ -89,6 +89,9 @@ popd
 %endif # with_python3
 
 %changelog
+* Fri May  9 2014 David Malcolm <dmalcolm@redhat.com> - 0.1-3
+- Enable tests
+
 * Thu May  8 2014 David Malcolm <dmalcolm@redhat.com> - 0.1-2
 - Fix BRs
 
