@@ -7,13 +7,13 @@
 %endif
 
 Name:           python-gccjit
-Version:        0.1
-Release:        3%{?dist}
+Version:        0.4
+Release:        1%{?dist}
 Summary:        Python bindings for libgccjit
 
 License:        GPLv3+
 URL:            https://github.com/davidmalcolm/pygccjit
-Source0:        gccjit-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/g/gccjit/gccjit-0.4.tar.gz
 
 BuildRequires:  libgccjit-devel
 
@@ -89,6 +89,15 @@ popd
 %endif # with_python3
 
 %changelog
+* Fri Mar 27 2015 David Malcolm <dmalcolm@redhat.com> - 0.4-1
+- 0.4
+
+* Fri Mar 27 2015 David Malcolm <dmalcolm@redhat.com> - 0.3-1
+- 0.3
+
+* Wed Feb  4 2015 David Malcolm <dmalcolm@redhat.com> - 0.2-1
+- 0.2
+
 * Fri May  9 2014 David Malcolm <dmalcolm@redhat.com> - 0.1-3
 - Enable tests
 

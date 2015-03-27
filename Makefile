@@ -18,6 +18,11 @@ upload-srpm:
 	  ~/rpmbuild/SRPMS/python-gccjit-$(VERSION)-$(RELEASE).src.rpm \
 	  dmalcolm@fedorapeople.org:public_html/gcc/libgccjit-srpms
 
+local-mock-fedora-rawhide-x86_64:
+	mock --rebuild \
+	  ~/rpmbuild/SRPMS/python-gccjit-$(VERSION)-$(RELEASE).src.rpm \
+	  -r fedora-rawhide-x86_64
+
 local-mock-fedora-20-x86_64:
 	mock --rebuild \
 	  ~/rpmbuild/SRPMS/python-gccjit-$(VERSION)-$(RELEASE).src.rpm \
@@ -32,3 +37,6 @@ local-mock-epel-6-i386:
 	mock --rebuild \
 	  ~/rpmbuild/SRPMS/python-gccjit-$(VERSION)-$(RELEASE).src.rpm \
 	  -r epel-6-i386
+
+tarball:
+	cp ~/coding/gcc-python/pygccjit-clean/dist/gccjit-$(VERSION).tar.gz .
